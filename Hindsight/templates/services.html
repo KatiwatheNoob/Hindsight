@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+
+
+{% block title %} Services {% endblock %}
+<body>
+{% block content %}
+  
+
+  <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!--a class="navbar-brand text-brand" href="index.html">Hindsight-<span class="color-b">Ventures</span></a>-->
+      <a class="bi bi-house-fill" style="font-size: 30px;"href="{% url 'index' %}"></a>
+
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'index' %}">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'property_grid' %}">PROPERTY</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active " href="{% url 'services' %}">SERVICES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'contact' %}">CONTACT</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'about' %}">ABOUT</a>
+          </li>
+        </ul>
+      </div>
+
+     
+
+    </div>
+  </nav><!-- End Header/Navbar -->
+
+  <main id="main">
+
+    <!-- ======= Intro ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Services We Also Provide</h1>
+              <span class="color-text-a">Service Grid</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Services 
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro -->
+
+    <!-- ======= Service Grid ======= -->
+   
+
+<section class="news-grid grid">
+  <div class="container">
+    <div class="row">
+
+      {% for service in services %}
+      <div class="col-md-4">
+        <div class="card-box-b card-shadow news-box">
+          <div class="img-box-b">
+            <img src="{{ service.image.url }}" alt="" class="img-b img-fluid">
+          </div>
+          <div class="card-overlay">
+            <div class="card-header-b">
+              
+              <div class="card-title-b">
+                <h2 class="title-2">
+                  <a href="{% url 'index' %}">{{ service.name }}<br></a>
+                </h2>
+              </div>
+              <div class="card-category-b">
+                <button type="button" class="category-b" data-bs-toggle="modal" data-bs-target="#quoteModal{{ service.id }}" data-bs-whatever="@roy">Get Quote</button>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="quoteModal{{ service.id }}" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="quoteModalLabel">Get Quote for {{ service.name }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Add your quote form fields here -->
+              <form id="quoteForm" action="{% url 'get_quote' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="service_id" value="{{ service.id }}">
+                <!-- Add other form fields as needed -->
+                <div class="form-group">
+                  <label for="name">Your Name:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Your Email:</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="name">Your Phone Number:</label>
+                  <input type="text" class="form-control" id="phone" name="phone" required>
+                </div>
+                <button type="submit" class="btn btn-dark d-block mx-auto mt-3">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Modal -->
+
+      
+
+
+      {% endfor %}
+      
+
+    </div>
+  </div>
+</section>
+        </div>
+      </div>
+    </section><!-- End Services Grid-->
+   
+  </main><!-- End #main -->
+  {% endblock content %}
+</body>

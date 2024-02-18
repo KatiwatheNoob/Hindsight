@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block title %} Contact {% endblock %}
+ <!-- Include Bootstrap CSS and JS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/css/bootstrap.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<body>
+  {% block content %}
+ 
+
+  <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!--a class="navbar-brand text-brand" href="{% url 'index' %}">Hindsight-<span class="color-b">Ventures</span></a>-->
+      <a class="bi bi-house-fill" style="font-size: 30px;"href="{% url 'index' %}"></a>
+
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'index' %}">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'property_grid' %}">PROPERTY</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'services' %}">SERVICES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active " href="{% url 'contact' %}">CONTACT</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'about' %}">ABOUT</a>
+          </li>
+        </ul>
+      </div>
+
+     
+
+    </div>
+  </nav><!-- End Header/Navbar -->
+
+  <main id="main">
+   
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Contact US</h1>
+              <span class="color-text-a">Welcome to our Contact Us page! We're delighted that you want to get in touch with us. Whether you have questions, feedback, or just want to say hello, we're here to listen and assist you.<br/>
+
+                
+                
+                <h><b>Visit Our Location:<br/></h></b>
+                
+                If you prefer a face-to-face conversation, our office is conveniently located. You can also check out our location on the map below.
+                
+                We Value Your Feedback
+                
+                Your feedback is essential to us, and it helps us improve our services. We appreciate your time and effort in reaching out to us.
+                
+                Thank you for choosing to connect with us. We look forward to assisting you!<br/>
+
+                <h><b>How to Reach Us:<br/></h></b>
+                
+            You can contact us through the provided contact form below, and we'll get back to you as soon as possible. Please fill in your details, and let us know how we can assist you.</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Contact
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+  
+    <!-- ======= Contact Single ======= -->
+    {% if message_name %}
+    <center>
+      <h2>Thanks {{ message_name }}!</h2>
+      <p>We received your Email and we'll respond shortly...</p>
+    </center>
+    <br/><br/><br/>
+    {% else %}
+    <section class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="contact-map box">
+              <div id="map" class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.4961824383795!2d39.545197875802266!3d-4.317457246454064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18404fc8d9fc5625%3A0x40d4a005020d4eab!2sMvindeni!5e0!3m2!1sen!2ske!4v1696150704490!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"frameborder="0"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!--Fill ContactInfo-->
+          <div class="col-sm-12 section-t8">
+            <div class="row">
+              <div class="col-md-7">
+                <form id="contactForm" action="{% url 'contact' %}" method="POST">
+                     {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input type="text" name="message_name" class="form-control form-control-lg form-control-a" placeholder="Name" required>
+                      </div>
+                    </div>
+                   
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input name="message_email" type="email" class="form-control form-control-lg form-control-a" placeholder=" Email" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                      <div class="form-group">
+                        <input type="text" name="message_subject" class="form-control form-control-lg form-control-a" placeholder="Subject" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <textarea name="message" class="form-control" cols="45" rows="8" placeholder="Message" required></textarea>
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-12 text-center">
+                      <button type="submit" class="btn btn-a">Send Message</button>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          
+
+
+
+
+              <div class="col-md-5 section-md-t3">
+                <div class="icon-box section-b2">
+                  <div class="icon-box-icon">
+                    <span class="bi bi-envelope"></span>
+                  </div>
+                  <div class="icon-box-content table-cell">
+                    <div class="icon-box-title">
+                      <h4 class="icon-title">Say Hello</h4>
+                    </div>
+                    <div class="icon-box-content">
+                      <p class="mb-1">Email:
+                      <a href="mailto:INFO@HINDSIGHT-VENTURES.COM" class="color-a">Info@Hindsight-ventures.com</a>
+                      </p>
+                      
+                      <p> 
+                         <span class="color-text-a">Phone :</span> 
+                          <a href="tel:+254701709486">+254 701 709 486</a>
+                      </p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="icon-box section-b2">
+                  <div class="icon-box-icon">
+                    <span class="bi bi-geo-alt"></span>
+                  </div>
+                  <div class="icon-box-content table-cell">
+                    <div class="icon-box-title">
+                      <h4 class="icon-title">Find us in</h4>
+                    </div>
+                    <div class="icon-box-content">
+                      <p class="mb-1">
+                      Umoja,Mvindeni Area
+                        <br> Ukunda,Kwale
+                        <br>P.O Box 676-80400
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Add Later-->
+                  <!--
+                <div class="icon-box">
+                  <div class="icon-box-icon">
+                    <span class="bi bi-share"></span>
+                  </div>
+                  <div class="icon-box-content table-cell">
+                    <div class="icon-box-title">
+                      <h4 class="icon-title">Social networks</h4>
+                    </div>
+                    <div class="icon-box-content">
+                      <div class="socials-footer">
+                        <ul class="list-inline">
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="bi bi-facebook" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="bi bi-twitter" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="bi bi-instagram" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="bi bi-linkedin" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact -->
+  {% endif %}
+
+  </main><!-- End #main -->
+ {% endblock %}
+
+
+
+  
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{%load static%}
+{% load humanize %}
+{% block title %} Property {% endblock title %}
+<body>
+{% block content %}
+
+
+ <!-- ======= Header/Navbar ======= -->
+ <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <a class="bi bi-house-fill" style="font-size: 30px;"href="{% url 'index' %}"></a>
+
+
+    <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'index' %}">HOME</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active " href="{% url 'property_grid' %}">PROPERTY</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link  " href="{% url 'services' %}">SERVICES</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'contact' %}">CONTACT</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'about' %}">ABOUT</a>
+        </li>
+      </ul>
+    </div>
+
+  
+
+  </div>
+</nav><!-- End Header/Navbar -->
+
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Our Amazing Properties</h1>
+              <span class="color-text-a">Grid Properties</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Properties Grid
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+
+   <!-- ======= Property Grid ======= -->
+  <!-- HTML: Add data-filter-type attribute to your items-->
+<section id="propertyGrid" class="property-grid grid">
+ <div class="container">
+      <div class="row">
+        <!--
+          <div class="col-sm-12">
+              <div class="grid-option">
+                 <form>
+                      <select id="filterSelect" class="custom-select">
+                          <option value="all">All</option>
+                          <option value="newToOld">New to Old</option>
+                          <option value="forRent">Recently Added</option>
+                          
+                      </select>
+                  </form>
+              </div>
+          
+          </div>
+        -->
+        
+
+       
+
+          {% for property in properties %}
+              <div id="property{{ forloop.counter }}" class="col-md-4" data-filter-type="{{ property.filter_type }}">
+                  <a href="{% url 'property_single_with_id' property.id %}" class="property-link">
+                      <div class="card-box-a card-shadow">
+                          <div class="img-box-a">
+                              <img src="{{ property.default_image_url }}" alt="Default Image" class="img-a img-fluid">
+                          </div>
+                          <div class="card-overlay">
+                              <div class="card-overlay-a-content">
+                                  <div class="card-header-a">
+                                      <h2 class="card-title-a">
+                                          <span>{{ property.name }}</span><br>
+                                          <br/> {{ property.location }}
+                                      </h2>
+                                  </div>
+                                  <div class="card-body-a">
+                                      <div class="price-box d-flex">
+                                          <span class="price-a">Price | Ksh {{ property.price|intcomma }}</span>
+                                      </div>
+                                  </div>
+                                  <div class="card-footer-a">
+                                      <ul class="card-info d-flex justify-content-around">
+                                          <li>
+                                              <h4 class="card-info-title">Area</h4>
+                                              <span>{{ property.size_of_land }} {{ property.land_unit }}</span>
+                                          </li>
+                                          <li>
+                                              <h4 class="card-info-title">Subdivision</h4>
+                                              <span>{{property.subdivision}}</span>
+                                          </li>
+                                          <li>
+                                              <h4 class="card-info-title">Structures</h4>
+                                              <span>{{ property.structures }}</span>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+</section>
+
+
+
+
+  </main><!-- End #main -->
+  {% endblock content %}
+
+</body>

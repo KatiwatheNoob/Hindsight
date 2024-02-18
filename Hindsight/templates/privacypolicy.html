@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block title %} Privacy Policy {% endblock %}
+
+<body>
+{% block  content %}
+  
+  <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!--a class="navbar-brand text-brand" href="index.html">Hindsight-<span class="color-b">Ventures</span></a>-->
+      <a class="bi bi-house-fill" style="font-size: 30px;"href="{% url 'index' %}"></a>
+
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'index' %}">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'property_grid' %}">PROPERTY</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'services' %}">SERVICES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'contact' %}">CONTACT</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link  " href="{% url 'about' %}">ABOUT</a>
+          </li>
+        </ul>
+      </div>
+
+     
+
+    </div>
+  </nav><!-- End Header/Navbar -->
+
+  <main id="main">
+
+    <!-- ======= Intro PrivacyPolicy ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Privacy Policy
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro -->
+
+    <!-- ======= PP Section ======= -->
+    <section class="section-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 position-relative">
+            <div class="about-img-box">
+              <img src="{% static 'img/Law.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="sinse-box">
+              <h3 class="sinse-title">HINDSIGHT-VENTURES LTD
+               
+                <br> 
+                <p>Since 2022</p>
+              </h3>
+              <p>Land Aquisition And Development Company</p>
+            </div>
+          </div>
+          <header>
+            <h1>Privacy Policy</h1>
+            <p>Last Updated: <span id="last-updated-date"></span></p>
+
+        </header>
+    
+        <section>
+            <h2>Introduction</h2>
+            <p>Welcome to Hindsight Ventures! We value your privacy and are committed to protecting your personal information. This Privacy Policy is designed to help you understand how we collect, use, and safeguard the data you provide to us.</p>
+            <p>By using our website or services, you agree to the practices described in this Privacy Policy. If you do not agree to the terms of this policy, please do not use our website or services.</p>
+        </section>
+    
+        <section>
+            <h2>Information We Collect</h2>
+            <h3>1. Personal Information</h3>
+            <p>We collect the following personal information from you when you use our website:</p>
+            <ul>
+                <li><strong>Name:</strong> We may collect your name to personalize your experience and communicate with you.</li>
+                <li><strong>Email Address:</strong> We collect your email address to send you updates, newsletters, and information about our services.</li>
+            </ul>
+            <h3>2. Non-Personal Information</h3>
+            <p>We may also collect non-personal information, including but not limited to:</p>
+            <ul>
+                <li><strong>Usage Data:</strong> We collect information about your interactions with our website, such as pages visited, time spent on the site, and other usage statistics.</li>
+            </ul>
+        </section>
+       <h2> How We Use Your Information</h2>
+       <p>We use the information collected for the following purposes:</p>
+       <ul><ul>
+
+           <li> To provide and maintain our services.</li>
+            <li>To communicate with you, respond to inquiries, and provide customer support.</li>
+            <li>To send you updates, newsletters, marketing materials, and promotional offers.</li>
+            <li>To improve our website and services, including analyzing user behavior and trends.</li>
+            <li>To enforce our terms of service and protect our rights and property.</li>
+            <li>To comply with legal obligations.</li>
+       </ul></ul>
+      <h2>Data Security</h2>  
+      <p>We take reasonable measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, please be aware that no data transmission over the internet is completely secure, and we cannot guarantee the absolute security of your data.</p>
+
+      <h2>Third-Party Websites</h2>
+      <p>Our website may contain links to third-party websites or services that are not operated by us. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites or services.</p>
+
+      <h2>Your Choices</h2>
+      <p>You have the following choices regarding your personal information:</p>
+      <ul><ul>
+
+        <li>You can update or correct your personal information by contacting us.</li>
+        <li>You can opt out of receiving marketing emails by following the unsubscribe instructions included in each email.</li>
+        <li>You can request the deletion of your account and personal data by contacting us.</li>
+
+      </ul></ul>
+
+        <h2>Changes to this Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page. We recommend reviewing this Privacy Policy periodically.</p>
+
+        <h2>Any Further Questions or inquiries</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+        <address>
+          <b><p class="mb-1">Email.</b>
+            <a href="mailto:INFO@HINDSIGHT-VENTURES.COM" class="color-a">INFO@HINDSIGHT-VENTURES.COM</a>
+          </p>
+          
+            <b><p>Phone</b>: [+254 701 709 486]</p>
+        </address>
+    </footer>
+
+      
+   
+
+  </main><!-- End #main -->
+
+  
+   <!--Script Js for Date/Time-->
+  <script>
+    // Function to format the current date as YYYY-MM-DD
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    // Get the current date and set it in the last-updated-date element
+    const currentDate = new Date();
+    const lastUpdatedDateElement = document.getElementById('last-updated-date');
+    lastUpdatedDateElement.textContent = formatDate(currentDate);
+</script>
+
+
+  {% endblock %}
+  
+
+  
+</body>
+
+

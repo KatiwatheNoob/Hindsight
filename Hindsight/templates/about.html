@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block title %} About {% endblock %}
+
+<body>
+{% block  content %}
+  
+  <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!--a class="navbar-brand text-brand" href="index.html">Hindsight-<span class="color-b">Ventures</span></a>-->
+      <a class="bi bi-house-fill" style="font-size: 30px;"href="{% url 'index' %}"></a>
+
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'index' %}">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'property_grid' %}">PROPERTY</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'services' %}">SERVICES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'contact' %}">CONTACT</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active " href="{% url 'about' %}">ABOUT</a>
+          </li>
+        </ul>
+      </div>
+
+      
+
+    </div>
+  </nav><!-- End Header/Navbar -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section class="section-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 position-relative">
+            <div class="about-img-box">
+              <img src="{% static 'img/about1.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="sinse-box">
+              <h3 class="sinse-title">HINDSIGHT-VENTURES LTD
+               
+                <br> 
+                <p>Since 2022</p>
+              </h3>
+              <p>Land Aquisition And Development Company</p>
+            </div>
+          </div>
+      
+          <header>
+            <h1>Who we are:</h1>
+        </header>
+
+        <section>
+          <ul><p>Welcome to Hindsight Ventures Limited, your trusted partner in land development and management, based in <b>Ukunda, Kwale County, Kenya.</b> Established in <b>February 2022</b>, we are a dynamic company driven by a passion for transforming land into opportunities. With a firm commitment to integrity, innovation and community enhancement, we are dedicated to making a positive impact on the world of real estate.</p></ul>
+        </section>
+
+        <section>
+          <h1>Mission Statement:</h1>
+          <ul><p>At Hindsight Ventures, our core mission is to bridge the gap between potential and reality in land investing and management in the picturesque town of Ukunda and its surrounding areas by enabling individuals to achieve their dreams while providing investors with opportunities for sustainable growth. We specialize in <b>acquiring, enhancing and developing land, creating opportunities for growth, prosperity and community development.</b> With this mission to transform land into opportunities for progress and prosperity, we work tirelessly to ensure that every parcel of land we touch becomes a source of pride for its owners and a catalyst for economic progress in this beautiful region.</p></ul>
+        </section>
+
+        <section>
+          <h1>Our Vision:</h1>
+          <ul><p>Our vision at Hindsight Ventures, is set new industry standards as the premier land development and management company in Ukunda, Kwale County, and Kenya at large. We aspire to create a future where every piece of land in this idyllic coastal region realizes its full potential. We are committed to building sustainable, harmonious communities that reflect our dedication to excellence and our belief in the transformative power of land.</p></ul>
+        </section>
+
+        <section>
+          <h1>Company Value Proposition:</h1>
+          <ul><p>At Hindsight Ventures, what sets us apart is a comprehensive suite of services that we undertake to ensure tranquility, longevity and assured peace within our developments:</ul></p>
+              <ul><ul>
+                <li><b>Exhaustive Due Diligence</b><p>When we undertake a project during purchase and within development our decisions and actions are all backed by our meticulous due diligence in land history, development design and construction</P></li>
+                  <li><b>Peaceful Solutions</b><p>We specialize in mediating and resolving land disputes on our parcels between previous owners and neighbors or even squatters, creating a serene environment for property transactions that stand the test of time</p></li>
+                  <li><b>Accurate Land Surveys</b><p>Through registered and licensed surveyors and proper channels, we provide precise measurements and boundary identification, guaranteeing transparency and security in land transactions.</p></li>
+                  <li><b>Access Road Improvement</b><p>We improve state of access roads to the parcels, improving accessibility not only for our clients but also for the broader community. This enhances the overall value of the area and encourages further development by other investors</p></li>
+
+                </ul></ul>
+              </section>
+
+        <section>
+                <h1>Future Endeavors:</h1>
+                <ul><p>As we look ahead, Hindsight Ventures is committed to expanding our impact and services in the real estate landscape, with a focus on Kwale County:</ul></p>
+                  <ul><ul>
+                    <li><b>Property Development</b><p>We plan to venture into property development, creating homes and infrastructure on our value-added land to offer complete living solutions to our clients in this coastal paradise.</p></li>
+                    <li><b>Development Purposed Renting</b><p>We will offer equipment rental services to those developing within our lands or any other individuals or businesses in need of specialized equipment for their projects, further facilitating growth and development in our areas of operation</p></li>
+                    <li><b>Gated Communities</b><p>We aim to establish gated communities characterized by consistent architectural aesthetics, providing residents with a sense of belonging and continuity</p></li>
+                    </ul></ul>
+          </section>
+          <br>
+          <br>
+
+          <section>
+            <p>At <b>Hindsight Ventures Limited</b>, we are defined by our commitment to making land work for you right here in Kwale County. Join us on this exciting journey of unlocking the true potential of land in this coastal haven, and together, we'll shape the future of real estate through innovation, transparency, and community-focused development.</p>
+
+          </section>
+
+
+
+
+
+
+
+   
+
+  </main><!-- End #main -->
+  {% endblock %}
+
+  
+</body>
+
+
