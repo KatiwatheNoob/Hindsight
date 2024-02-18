@@ -19,7 +19,7 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['hindsight-ventures.onrender.com']
 
@@ -136,7 +136,7 @@ MEDIA_URL='/media/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+'''''
 #Email setting
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -147,3 +147,4 @@ EMAIL_HOST_USER = 'roykatiwa@gmail.com'
 EMAIL_HOST_PASSWORD = 'zktz lmot eqpg tqgx'
 ALLOWED_HOSTS =[]
 
+''''
