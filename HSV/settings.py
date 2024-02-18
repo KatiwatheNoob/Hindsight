@@ -14,7 +14,7 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d!=@a1tfa*3jacp&ga0)ee@-%#h-oh=gx6=ufgd9o)s(v$3+qw'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Hindsight',
-    'humanize',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +129,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "MY APP"
+DEFAULT_FROM_EMAIL = "HSV Website"
 EMAIL_HOST_USER = 'roykatiwa@gmail.com'
 EMAIL_HOST_PASSWORD = 'zktz lmot eqpg tqgx'
 ALLOWED_HOSTS =[]
