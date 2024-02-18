@@ -147,4 +147,4 @@ EMAIL_HOST_USER = 'roykatiwa@gmail.com'
 EMAIL_HOST_PASSWORD = 'zktz lmot eqpg tqgx'
 ALLOWED_HOSTS =[]
 
-''''
+'''''
