@@ -43,7 +43,7 @@ def contact(request):
                 message_name, #subject
                 message, # message
                 message_email, # from email
-                {'Roykatiwa@gmail.com'}, # to email
+                {'info@hindsight-ventures.com'}, # to email
         )
         
 

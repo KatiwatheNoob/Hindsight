@@ -19,7 +19,7 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['hindsight-ventures.onrender.com','hindsight-ventures.com']
 
@@ -167,7 +167,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "HSV Website"
-EMAIL_HOST_USER = 'roykatiwa@gmail.com'
-EMAIL_HOST_PASSWORD = 'zktz lmot eqpg tqgx'
-ALLOWED_HOSTS =['hindsight-ventures.onrender.com']
+EMAIL_HOST_USER = 'info@hindsight-ventures.com'
+EMAIL_HOST_PASSWORD = 'esie xybn yusa dfyr'
+ALLOWED_HOSTS =['hindsight-ventures.onrender.com','hindsight-ventures.com']
 
