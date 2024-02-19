@@ -145,5 +145,5 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "HSV Website"
 EMAIL_HOST_USER = 'roykatiwa@gmail.com'
 EMAIL_HOST_PASSWORD = 'zktz lmot eqpg tqgx'
-#ALLOWED_HOSTS =[]
+ALLOWED_HOSTS =['hindsight-ventures.onrender.com']
 
