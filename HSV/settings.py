@@ -19,9 +19,9 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['hindsight-ventures.onrender.com','hindsight-ventures.com']
+ALLOWED_HOSTS = ['hindsight-ventures.onrender.com','hindsight-ventures.com','127.0.0.1']
 
 
 # Application definition
@@ -169,5 +169,5 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "HSV Website"
 EMAIL_HOST_USER = 'info@hindsight-ventures.com'
 EMAIL_HOST_PASSWORD = 'esie xybn yusa dfyr'
-ALLOWED_HOSTS =['hindsight-ventures.onrender.com','hindsight-ventures.com']
+ALLOWED_HOSTS =['hindsight-ventures.onrender.com','hindsight-ventures.com','127.0.0.1']
 
