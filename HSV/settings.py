@@ -21,7 +21,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hindsight-ventures.onrender.com']
+ALLOWED_HOSTS = ['hindsight-ventures.onrender.com','hindsight-ventures.com']
 
 
 # Application definition
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Hindsight',
     'django.contrib.humanize',
+    
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,29 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_URL='/media/'
 
 
+'''''
+# AWS configuration
+
+AWS_ACCESS_KEY_ID = 'AKIA5FTZFLMHWQFADSOW'
+AWS_SECRET_ACCESS_KEY= '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'
+
+
+AWS_STORAGE_BUCKET_NAME = 'hsv-bucket'
+AWS_S3_CUSTOM_DOMAIN =  '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
+
+#storages
+STORAGES = {
+    'default': {
+
+    'BACKEND':'storages.backends.s3boto3.S3staticStorage'
+    },
+  
+}
+'''''
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -145,5 +169,5 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "HSV Website"
 EMAIL_HOST_USER = 'roykatiwa@gmail.com'
 EMAIL_HOST_PASSWORD = 'zktz lmot eqpg tqgx'
-#ALLOWED_HOSTS =[]
+ALLOWED_HOSTS =['hindsight-ventures.onrender.com']
 
