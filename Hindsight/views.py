@@ -7,8 +7,8 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail,EmailMessage
 from django.contrib import messages 
 from django.template import loader
-from .forms import ContactForm, SubscribedEmailsForm
-from .models import Parcel,Service,SubscribedEmails,MainService,IndexParcel,UnsubscribedEmails,Property, Image
+from .forms import ContactForm, EmailsForm
+from .models import Parcel,Service,SubscribedEmail,MainService,Property, Image
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.validators import validate_email
@@ -18,7 +18,7 @@ from django.db.models import Q
 from django.conf import settings
 from django.http import JsonResponse
 from django.urls import reverse
-from django.shortcuts import render, get_object_or_404,redirect
+
 User = get_user_model()
 
 
@@ -28,8 +28,8 @@ User = get_user_model()
 def index(request):
     parcels = Parcel.objects.all()
     mainservices = MainService.objects.all()
-    indexparcels = IndexParcel.objects.all()
-    return render(request, 'index.html', {'parcels':parcels, 'mainservices':mainservices, 'indexparcels': indexparcels})
+ 
+    return render(request, 'index.html', {'parcels':parcels, 'mainservices':mainservices})
 
 def contact(request):
     if request.method == 'POST':
@@ -71,56 +71,21 @@ def careers(request):
 
 def subscribe(request):
     if request.method == 'POST':
-        email = request.POST.get('email', None)
-
-        if not email:
-            messages.error(request, "Please provide an email address.")
-            return redirect("/")
-
-        if User.objects.filter(email=email).exists():
-            messages.warning(request, "This email is already subscribed!")
-            return redirect("/")
-        
-        subscribe_user = SubscribedEmails.objects.filter(email=email).first()
-        if subscribe_user:
-            messages.error(request, f"Email already exists: {email}")
-            return redirect("/")
+        Email_form = EmailsForm(request.POST)
+        if Email_form.is_valid():
+            email = Email_form.cleaned_data['email']
+            if SubscribedEmail.objects.filter(email=email).exists():
+                messages.error(request, "Email already registered")
+            else:
+                Email_form.save()
+                messages.success(request, "Successfully Subscribed")
         else:
-            try:
-                validate_email(email)
-            except ValidationError as e:
-                messages.error(request, e.message[0])
-                return redirect("/")
-            
-            html_template = 'register_email.html'
-            html_message = render_to_string(html_template)
-            subject = 'Welcome to Hindsight-Ventures Newsletter'
-            email_from = settings.EMAIL_HOST_USER
-            recipient_list = [email]
-            
-            # Use EmailMessage to send HTML emails
-            message = EmailMessage(subject, html_message, email_from, recipient_list)
-            message.content_subtype = 'html'
-            message.send()
+            context = {"Email_form": Email_form}
+            return render(request, 'subscribe.html', context=context)
 
-            # Save the email to your SubscribedEmails model
-            subscribe_model_instance = SubscribedEmails(email=email)
-            subscribe_model_instance.save()
-
-            messages.success(request, f'{email} email was successfully subscribed to our newsletter')
-
-    return redirect("/")
-
-
-def unsubscribe(request, email):
-    subscribed_user = get_object_or_404(SubscribedEmails, email=email)
-
-    # Move the email from SubscribedEmails to UnsubscribedEmails
-    subscribed_user.delete()  # Remove from SubscribedEmails
-    UnsubscribedEmails.objects.create(email=email)  # Add to UnsubscribedEmails
-
-    messages.success(request, f'You have been successfully unsubscribed.')
-    return render(request, 'unsubscribe.html')
+    Email_form = EmailsForm()
+    context = {"Email_form": Email_form}
+    return render(request, 'subscribe.html', context=context)
 
 
 
@@ -207,6 +172,7 @@ def send_email_to_agent(request):
         # Optionally, you can redirect the user after sending the email
         return render(request, 'property_single.html', {'name': name})
    
+
 
 
 

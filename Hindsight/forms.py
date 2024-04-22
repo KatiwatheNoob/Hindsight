@@ -1,7 +1,11 @@
 from django import forms
+from django.conf import settings
 from django.forms import ModelForm, DateInput
 from django.contrib.auth.models import User
-from .models import SubscribedEmails
+from .models import SubscribedEmail
+
+from django_recaptcha.fields import ReCaptchaField
+
 
 #forms
 class ContactForm(forms.Form):
@@ -9,10 +13,15 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea)
+    
 
 
 
-class SubscribedEmailsForm(forms.ModelForm):
+class EmailsForm(forms.ModelForm):
+    
+    captcha = ReCaptchaField()
+
     class Meta:
-        model = SubscribedEmails
-        fields = ['email']
+        model = SubscribedEmail
+        fields = ("email","captcha")
+

@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import unsubscribe,get_quote,send_email_to_agent
+from .views import get_quote,send_email_to_agent
 
 
 #Pages
@@ -12,7 +12,6 @@ urlpatterns = [
     path('privacypolicy/', views.privacypolicy, name='privacypolicy'),
     path('careers/', views.careers, name='careers'),
     path('subscribe/', views.subscribe, name='subscribe'),
-    path('unsubscribe/<str:email>/', unsubscribe, name='unsubscribe'),
     path('get_quote/', get_quote, name='get_quote'),
   
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Parcel, Service, SubscribedEmails, MainService, IndexParcel, UnsubscribedEmails, Property,Image
+from .models import Category, Parcel, Service, SubscribedEmail, MainService,  Property,Image
 
 
 class SubscribedEmailsAdmin(admin.ModelAdmin):
@@ -10,10 +10,9 @@ class SubscribedEmailsAdmin(admin.ModelAdmin):
 admin.site.register(Category)
 admin.site.register(Parcel)
 admin.site.register(Service)
-admin.site.register(SubscribedEmails, SubscribedEmailsAdmin)  # Register SubscribedEmails with the custom admin class
+admin.site.register(SubscribedEmail, SubscribedEmailsAdmin)  # Register SubscribedEmails with the custom admin class
 admin.site.register(MainService)
-admin.site.register(IndexParcel)
-admin.site.register(UnsubscribedEmails)
+
 
 class ImageInline(admin.TabularInline):
     model = Image

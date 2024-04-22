@@ -62,19 +62,14 @@ class MainService(models.Model):
 
 
 
-class IndexParcel(models.Model):
-    parcels = models.ManyToManyField(Parcel)
-    # Add other fields related to Indexparcels model
 
-    def __str__(self):
-        return f"IndexParcel for {', '.join([parcel.name for parcel in self.parcels.all()])}"
 
 
 
 
 #SubscribedEmails
-class SubscribedEmails(models.Model):
-    email = models.EmailField(unique = True)
+class SubscribedEmail(models.Model):
+    email = models.EmailField(unique=True)
     created_date = models.DateTimeField('Date created', default=timezone.now)
 
     def __str__(self):
@@ -82,12 +77,6 @@ class SubscribedEmails(models.Model):
     
 
 
-class UnsubscribedEmails(models.Model):
-    email = models.EmailField(unique=True)
-    unsubscribed_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.email
 
 
 
