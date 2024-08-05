@@ -44,7 +44,7 @@ def contact(request):
                 message_name, #subject
                 message, # message
                 message_email, # from email
-                {'info@hindsight-ventures.com'}, # to email
+                {'roykatiwa@hindsight-ventures.com'}, # to email
         )
         
 
