@@ -153,11 +153,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "HSV Website"
-EMAIL_HOST_USER = 'info@hindsight-ventures.com'
-EMAIL_HOST_PASSWORD = 'esie xybn yusa dfyr'
+#EMAIL_HOST_USER = 'info@hindsight-ventures.com'
+#EMAIL_HOST_PASSWORD = 'esie xybn yusa dfyr'
 #ALLOWED_HOSTS =['hindsight-ventures.onrender.com','hindsight-ventures.com','127.0.0.1']
-#EMAIL_HOST_USER = 'roykatiwa@gmail.com'
-#EMAIL_HOST_PASSWORD = 'gmen gfhq lhtp cren'
+EMAIL_HOST_USER = 'roykatiwa@gmail.com'
+EMAIL_HOST_PASSWORD = 'gmen gfhq lhtp cren'
 
 
 
